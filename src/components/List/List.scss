@@ -1,0 +1,65 @@
+.todo{
+    &__list{
+        $self : &;
+        
+        transition: 0.3s all;
+        &-wrapper{
+            display: flex;
+            align-items: center;
+            padding: 8px 10px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            transition: 0.2s all;
+            position: relative;
+            cursor: pointer;
+            &:hover{
+                background-color: darken($color: #F4F6F8, $amount: 3);
+            }
+            &:hover #{$self}-remove{
+                opacity: 1;
+            }
+        }
+        .active{
+            background-color: #fff;
+            box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.03);
+            border-radius: 4px;
+        }
+        &-text{
+            flex: 1;
+            font-weight: 600;
+            font-size: 14px;
+            margin-left: 6px;
+            padding-top: 2px;
+            // добавляем ...
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        &-remove{
+            margin-right: 3px;
+            opacity: 0;
+            &-button{
+                position: absolute;
+                padding: 8px 10px;
+                right: -165px;
+                display: none;
+            }
+            path{
+                fill: darken($color: #E3E3E3, $amount: 4);
+                transition: 0.3s all;
+            }
+            &:hover{
+                path{
+                    fill: darken($color: #E3E3E3, $amount: 25)
+                }
+            }
+        }
+    }
+    &__dots{
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        margin-right: 4px;
+        margin-left: 4px;
+    }
+}

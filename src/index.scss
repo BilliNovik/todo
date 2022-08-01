@@ -1,0 +1,132 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  outline: none;
+  font-family: 'Lato',-apple-system, sistem-ui, sans-serif; 
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
+}
+
+.hide-button{
+  display: block;
+}
+
+body {
+  margin: 0;
+  background-color: #E5E5E5;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.todo{
+  max-width: 750px;
+  width: 100%;
+  height: 525px;
+  // height: 100%;
+  display: flex;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  &__sidebar{
+    background-color: #F4F6F8;
+    width: 200px;
+    border-right: 1px solid #F1F1F1;
+    padding: 60px 20px;
+    &-top{
+      padding-bottom: 15px;
+    }
+  }
+  &__tasks{
+    background-color: #FFFFFF;
+    width: 550px;
+    z-index: -1;
+    padding: 55px;
+    padding-bottom: 20px;
+    padding-right: 20px;
+    overflow: auto;
+  }
+}
+
+.text-input{
+  background: #FFFFFF;
+  border: 1px solid #EFEFEF;
+  box-sizing: border-box;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #767676;
+  width: 100%;
+  &::placeholder{
+    opacity: 0.6;
+    color: #C7C7C7;
+  }
+  &:focus{
+      border-color: darken($color: #EFEFEF, $amount: 25);
+  }
+}
+
+button{
+  cursor: pointer;
+}
+
+.button{
+  border-radius: 4px;
+  background: #4DD599;
+  width: 100%;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-align: center;
+  border: none;
+  transition: 0.3s all;
+  &:hover{
+    background-color: darken($color: #4DD599, $amount: 10);
+  }
+  &:disabled{
+    background-color: #CCCCCC;
+    color: #7D7D7D;
+    &:hover{
+        background-color: #CCCCCC;
+        color: #7D7D7D;
+    }
+  }
+}
+
+.grey-button{
+  color: #9C9C9C;
+  background: #F4F6F8;
+  &:hover{
+    background-color: darken($color: #F4F6F8, $amount: 5);
+  }
+}
+
+@media (max-width: 700px) { 
+  .todo{
+    justify-content: center;
+    &__tasks{
+      padding: 15px;
+      padding-top: 55px;
+    }
+    &__sidebar{
+      width: 78px;
+      padding: 60px 10px;
+      &-top{
+        width: 44px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) { 
+  .todo{
+    height: 100%;
+  }
+}
